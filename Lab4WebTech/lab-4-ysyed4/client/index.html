@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Destination Explorer</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="client/lab4.css" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Lab 3 Ysyed4</h1>
+      <button
+      onclick="document.getElementById('id01').style.display='block'"> Login</button>
+
+      <div id="id01" class="modal">
+        <span
+        onclick="document.getElementById('id01').style.display='none'"
+        class="close" title="Close Modal">&times;</span>
+
+        <form class="modal-content animate" >
+          <div class="imgcontainer">
+            <img src="/client/img/avatar.png" alt="Avatar" class="avatar">
+          </div>
+          <div class ="container">
+            <label for="uname"><b>Username</bb></label>
+              <input type="text" placeholder="Enter Username" name="uname"
+              required>
+              <button type="submit">Login</button>
+              <label>
+                <input type="checkbox" checked="checked" name="remember">
+                Remember me
+                </label>
+          </div>
+          <div class="container" style="background-color:#f1f1f1">
+            <button type="button" 
+            onclick="document.getElementById('id01').style.display='none'"
+            class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+          </div>
+        </form>
+      </div>
+      <div class="searchingDestinations">
+        <h2>Search Destinations</h2>
+        <form id="search-form">
+          <div class="form-group">
+            <label for="search-field">Search By:</label>
+            <select id="search-field" name="search-field" required>
+              <option value="">--Select Field--</option>
+              <option value="Destination">Name</option>
+              <option value="Region">Region</option>
+              <option value="Country">Country</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="search-query">Search Value:</label>
+            <input
+              type="text"
+              id="search-query"
+              name="search-query"
+              required
+              placeholder="Enter search term"
+            />
+          </div>
+          <div class="form-group">
+            <label for="results-limit">Enter Number of Results:</label>
+            <input
+              type="number"
+              id="results-limit"
+              name="results-limit"
+              required
+              placeholder="Enter Number of Results"
+              min="1"
+            />
+          </div>
+          <button type="submit">Search</button>
+        </form>
+      </div>
+
+      <div class="results-section">
+        <h2>Destination Details</h2>
+        <div id="loading" class="loading" style="display: none">Loading...</div>
+        <div id="destination-details"></div>
+        <div class="pagination-controls">
+          <button id="prev-page" class="btn btn-secondary">Previous</button>
+          <button id="next-page" class="btn btn-secondary">Next</button>
+        </div>
+      </div>
+
+      <div class="add-to-list">
+        <h3>Add to List</h3>
+        <select id="select-list" required>
+          <option value="">--Select List--</option>
+        </select>
+        <button id="add-to-list-button" class="btn btn-secondary">
+          Add to List
+        </button>
+      </div>
+
+      <div class="create-list">
+        <h2>Create a New List</h2>
+        <form id="create-list-form">
+          <div class="form-group">
+            <input
+              type="text"
+              id="list-name"
+              name="list-name"
+              required
+              placeholder="Enter List Name"
+            />
+          </div>
+          <button type="submit">Create List</button>
+        </form>
+      </div>
+
+      <div class="lists-section">
+        <h2>Favorite Lists</h2>
+        <div id="lists-container"></div>
+      </div>
+
+      <div class="map-section">
+        <h2>Map</h2>
+        <div id="osm-map"></div>
+      </div>
+
+      <div class="sort-lists">
+        <h3>Sort Lists By:</h3>
+        <select id="sort-field">
+          <option value="">--Select Field--</option>
+          <option value="region">Region</option>
+          <option value="name">Name</option>
+          <option value="country">Country</option>
+        </select>
+      </div>
+    </div>
+    <script src="/lab3.js" defer></script>
+  </body>
+</html>
